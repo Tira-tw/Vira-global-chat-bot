@@ -1,6 +1,6 @@
 # Vira-global-chat-bot
 
-下載下來填入token就可以了!
+下載下來[config.json](https://github.com/Tira-tw/Vira-global-chat-bot/blob/main/config.json)填入token就可以了!
 
 # 設定跨群 
 [prefix]global <頻道id>

@@ -33,16 +33,11 @@ Use the professional panels below to invite the instance to your guild or access
 
 ## **Bot Invitation Link** 
 
-Click to add the bot to your Discord Server 
+[Click to add the bot to your Discord Server](https://discord.com/api/oauth2/authorize?client_id=1514890515198513303&permissions=137439340544&scope=bot)
 
 ## **Official Support Server** 
 
-Join our community for developer support 
-
-
-## **Direct URLs for reference:** 
-
-- Invite Link: https://discord.com/api/oauth2/authorize?client_id=1514890515198513303&permissions=137439340544&scope=bot
+ no server.
 
 Vira Global Chat Bot • Built for Seamless Discord Interoperability 
 

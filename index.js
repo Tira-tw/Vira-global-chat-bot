@@ -4,19 +4,17 @@ const fs = require("fs");
 const db = require("quick.db");
 
 client.on("ready", () => {
-  console.log(`Bot已上線`);
+  console.log(`Bot is online`);
   
   // Set the client user's activity
-client.user.setActivity('v!global', { type: 'WATCHING' })
-  .then(presence => console.log(`Bot 添加伺服器人數 : ${presence.activities[0].name}`))
-  .catch(console.error);
+  client.user.setActivity('v!global', { type: 'WATCHING' })
+    .then(presence => console.log(`Bot server count activity set to: ${presence.activities[0].name}`))
+    .catch(console.error);
   
   client.user.setActivity(`v!global | ${client.guilds.cache.size} servers`, { type: "WATCHING"})
-        .then(presense => console.log (`Bot 添加伺服器人數 : ${presense.activities[0].name}`))
-        .catch(console.error);
-  
+    .then(presence => console.log(`Bot server count activity set to: ${presence.activities[0].name}`))
+    .catch(console.error);
 });
-
 
 client.on("message", async message => {
   if (message.author.bot) return;
@@ -31,13 +29,13 @@ client.on("message", async message => {
   
   if (command === "global") {
     const channel = message.mentions.channels.first();
-    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`你錯過了 **MANAGE GUILD** 允許!`)
+    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`You are missing the **MANAGE GUILD** permission!`)
     if (!channel)
       return message.channel.send(
-        "頻道無效，請提供正確的頻道!!，如果你覺得這個是錯誤的，請回報https://discord.gg/u4t5D7MpAx"
+        "Invalid channel. Please provide a valid channel! If you think this is an error, please report it here: ross_tira"
       );
     db.set(`g_${message.guild.id}`, `${channel.id}`);
-    message.channel.send(`跨群頻道設定在 ${channel}!`);
+    message.channel.send(`Global channel has been set to ${channel}!`);
   }
 });
 
@@ -47,9 +45,9 @@ client.on("message", async message => {
   let set = db.fetch(`g_${message.guild.id}`);
   if (message.channel.id === set) {
     const embed = new Discord.MessageEmbed()
-      .setTitle("用戶名稱: " + message.author.tag)
-      .addField("訊息:", message.content)
-      .setFooter(`伺服器: ${message.guild.name} || 伺服器人數: ${message.guild.memberCount}`)
+      .setTitle("Username: " + message.author.tag)
+      .addField("Message:", message.content)
+      .setFooter(`Server: ${message.guild.name} || Members: ${message.guild.memberCount}`)
     message.delete();
     client.guilds.cache.forEach(g => {
       try {
@@ -60,5 +58,6 @@ client.on("message", async message => {
     });
   }
 });
+
 const config = require("./config.json");
 client.login(config.token);

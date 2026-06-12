@@ -1,6 +1,6 @@
 ## **Vira Global Chat Bot** 
 
-## **NODE.JS V12+ COMPATIBLE** 
+## **NODE.JS V13 COMPATIBLE** 
 
 Welcome to the official deployment and configuration guide for the **Vira Global Chat Bot** . This Discord bot bridges communication between multiple servers, enabling cross-guild channels to interact seamlessly in real time. 
 
